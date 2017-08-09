@@ -5,28 +5,26 @@
     <title>Jesse Westendorf</title>
     <link rel="icon" type="image/ico" href="favicon.ico">
     <link rel="stylesheet" href="assets/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 </head>
-<body onScroll="onScrollBody()">
+<body onScroll="onScrollBody()" data-ng-app="portfolioVideos" data-ng-controller="controller">
 <header>
     <h1>Jesse Westendorf</h1>
 </header>
 <video onloadeddata="document.getElementsByTagName('header')[0].style.visibility = 'visible';" id="bg-vid" width="320" height="240" autoplay loop>
     <source src="assets/videos/typing%20video.mp4" type="video/mp4">
 </video>
-<div id="search-block">
+<!--<div id="search-block">
     <h2>Skills</h2>
     <input id="search-bar" type="text" onkeyup="onKeyPressSearchBar()" placeholder="Search for skills" />
     <ul id="search-results"></ul>
-</div>
+</div>-->
 <hr />
-<h2 id="JavaFX">JavaFX Development</h2>
-<div class="video-wrapper">
-    <iframe width="853" height="480" align="center" src="https://www.youtube.com/embed/RkmyeCbMG9U" frameborder="0" allowfullscreen></iframe>
-</div>
-<hr />
-<h2 id="Android">Android Development</h2>
-<div class="video-wrapper">
-    <iframe width="853" height="480" src="https://www.youtube.com/embed/unuqxPlyyXk" frameborder="0" allowfullscreen></iframe>
+<div data-ng-repeat="video in videos">
+    <h2 id="{{video.id}}">{{video.name}}</h2>
+    <div class="video-wrapper">
+        <iframe width="853" height="480" align="center" src="{{getTrustedResource(video.url)}}" frameborder="0" allowfullscreen></iframe>
+    </div>
 </div>
 <!--BEGIN FIXED VIEWS-->
 <div id="scroll-up-btn" onclick="window.scrollTo(0, 0)">
@@ -54,6 +52,19 @@
     &copy; <script>document.write(new Date().getYear()+1900)</script> Jesse Westendorf
 </footer>
 <script type="text/javascript">
+    var app = angular.module("portfolioVideos", []);
+app.controller("controller", function($scope, $sce){
+    $scope.videos = [
+        { id : "", name: "Java SE 8 - Android Mobile Application Project" , url : "https://www.youtube.com/embed/unuqxPlyyXk" },
+        { id : "", name : "Java SE 8 - JavaFX Desktop Application" , url : "https://www.youtube.com/embed/RkmyeCbMG9U" }
+        { id : "", name : "C99 - Pre-Interview Whiteboard - Hackerrank in a String" , url : "https://youtu.be/GlAjN58iaLE" }
+        { id : "", name : "Python 3 - Pre-Interview Whiteboard - Minimum Distances" , url : "https://youtu.be/NrFeFd_xDzA" }
+        { id : "", name : "C# - Simple Web Browser Desktop Application" , url : "https://www.youtube.com/embed/HOt0zwhqCoA" }
+    ];
+    $scope.getTrustedResource = function(source){
+        return $sce.trustAsResourceUrl(source);
+    };
+});
     function onKeyPressSearchBar(){
         var text = document.getElementById("search-bar").value;
         var results = getSearchResults(text);

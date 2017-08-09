@@ -6,51 +6,6 @@
     <link rel="icon" type="image/ico" href="favicon.ico">
     <link rel="stylesheet" href="assets/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
-</head>
-<body onScroll="onScrollBody()" data-ng-app="portfolioVideos" data-ng-controller="controller">
-<header>
-    <h1>Jesse Westendorf</h1>
-</header>
-<video onloadeddata="document.getElementsByTagName('header')[0].style.visibility = 'visible';" id="bg-vid" width="320" height="240" autoplay loop>
-    <source src="assets/videos/typing%20video.mp4" type="video/mp4">
-</video>
-<!--<div id="search-block">
-    <h2>Skills</h2>
-    <input id="search-bar" type="text" onkeyup="onKeyPressSearchBar()" placeholder="Search for skills" />
-    <ul id="search-results"></ul>
-</div>-->
-<hr />
-<div data-ng-repeat="video in videos">
-    <h2 id="{{video.id}}">{{video.name}}</h2>
-    <div class="video-wrapper">
-        <iframe width="853" height="480" align="center" src="{{getTrustedResource(video.url)}}" frameborder="0" allowfullscreen></iframe>
-    </div>
-</div>
-<!--BEGIN FIXED VIEWS-->
-<div id="scroll-up-btn" onclick="window.scrollTo(0, 0)">
-    <svg>
-        <polygon points="30,7 45,26 15,26"></polygon>
-        <rect x="24px" y="20px" height="25px" width="12px"></rect>
-    </svg>
-</div>
-<div id="social-links">
-    <a href="https://www.linkedin.com/in/jesse-westendorf-9b63923b/" target="_blank">
-        <img title="LinkedIn" src="assets/images/linkedin.png" alt="linkedin" />
-    </a>
-    <a href="https://github.com/westendorf" target="_blank">
-        <img title="My GitHub Account" src="assets/images/github.png" alt="My GitHub Account" />
-    </a>
-    <a href="mailto:jesse.westendorf@gmail.com">
-        <img title="Email Me!" src="assets/images/email_logo.png" alt="Email Me" />
-    </a>
-    <a href="https://drive.google.com/file/d/0B0OHPyAJk5HRRDFpdi0wTFFNeG8/view?usp=sharing" target="_blank">
-        <img title="My Resume" src="/assets/images/resume_icon.png" alt="My Resume" />
-    </a>
-</div>
-<!--END FIXED VIEWS-->
-<footer>
-    &copy; <script>document.write(new Date().getYear()+1900)</script> Jesse Westendorf
-</footer>
 <script type="text/javascript">
     var app = angular.module("portfolioVideos", []);
 app.controller("controller", function($scope, $sce){
@@ -99,5 +54,51 @@ app.controller("controller", function($scope, $sce){
             (window.scrollY > 0) ? "visible" : "hidden";
     }
 </script>
+</head>
+<body onScroll="onScrollBody()" data-ng-app="portfolioVideos" data-ng-controller="controller">
+<header>
+    <h1>Jesse Westendorf</h1>
+</header>
+<video onloadeddata="document.getElementsByTagName('header')[0].style.visibility = 'visible';" id="bg-vid" width="320" height="240" autoplay loop>
+    <source src="assets/videos/typing%20video.mp4" type="video/mp4">
+</video>
+<!--<div id="search-block">
+    <h2>Skills</h2>
+    <input id="search-bar" type="text" onkeyup="onKeyPressSearchBar()" placeholder="Search for skills" />
+    <ul id="search-results"></ul>
+</div>-->
+<hr />
+<div data-ng-repeat="video in videos">
+    <h2 id="{{video.id}}">{{video.name}}</h2>
+    <div class="video-wrapper">
+        <iframe width="853" height="480" align="center" src="{{getTrustedResource(video.url)}}" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+<!--BEGIN FIXED VIEWS-->
+<div id="scroll-up-btn" onclick="window.scrollTo(0, 0)">
+    <svg>
+        <polygon points="30,7 45,26 15,26"></polygon>
+        <rect x="24px" y="20px" height="25px" width="12px"></rect>
+    </svg>
+</div>
+<div id="social-links">
+    <a href="https://www.linkedin.com/in/jesse-westendorf-9b63923b/" target="_blank">
+        <img title="LinkedIn" src="assets/images/linkedin.png" alt="linkedin" />
+    </a>
+    <a href="https://github.com/westendorf" target="_blank">
+        <img title="My GitHub Account" src="assets/images/github.png" alt="My GitHub Account" />
+    </a>
+    <a href="mailto:jesse.westendorf@gmail.com">
+        <img title="Email Me!" src="assets/images/email_logo.png" alt="Email Me" />
+    </a>
+    <a href="https://drive.google.com/file/d/0B0OHPyAJk5HRRDFpdi0wTFFNeG8/view?usp=sharing" target="_blank">
+        <img title="My Resume" src="/assets/images/resume_icon.png" alt="My Resume" />
+    </a>
+</div>
+<!--END FIXED VIEWS-->
+<footer>
+    &copy; <script>document.write(new Date().getYear()+1900)</script> Jesse Westendorf
+</footer>
+
 </body>
 </html>

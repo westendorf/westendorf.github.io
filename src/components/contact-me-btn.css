@@ -1,0 +1,15 @@
+.contact-me-btn {
+    border: 1px solid black;
+    color: black;
+    display: block;
+    font-size: 1.3em;
+    margin: 1em auto 1em auto;
+    padding: 5px;
+    text-align: center;
+    text-decoration: underline;
+    width: 200px;
+}
+
+.contact-me-btn:active {
+    box-shadow: black 0 0 9px 0 inset;
+}
